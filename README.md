@@ -95,8 +95,8 @@ Above each User Story is the sentence that has formed the basis for its developm
 *This is basic functionality required - the controller must be able to communicate with the rover. No specific sentence has formed the basis of this User Story*
 ```
 As a NASA controller,
-So that we can explore Mars,
-We would like to interact with an online Mars Rover.
+So that NASA can explore Mars,
+I'd like to interact with an online Mars Rover.
 ```
 
 **User Story 2:**
@@ -104,15 +104,15 @@ We would like to interact with an online Mars Rover.
 ```
 As a NASA controller,
 So that I can explore a particular part of Mars,
-I would like to be able to land a Mars Rover on the plateau.
+I'd like to be able to land a Mars Rover on the plateau.
 ```
 
 **User Story 3:**
 *This plateau, which is curiously rectangular, must be navigated by the rovers so that their on-board cameras can get a complete view of the surrounding terrain to send back to Earth.*
 ```
 As a NASA controller,
-So that we can get a complete view of the surrounding terrain to send back to Earth,
-I would like to be able to start and stop our camera from recording.
+So that I can get a complete view of the surrounding terrain to send back to Earth,
+I'd like to be able to start and stop our camera from recording.
 ```
 
 **User Story 4:**
