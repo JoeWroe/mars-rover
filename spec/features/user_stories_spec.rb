@@ -1,5 +1,7 @@
 describe 'User Stories' do
 
+  let (:mars_rover) { MarsRover.new }
+
   # USER STORY 1
   # As a NASA controller,
   # So that NASA can explore Mars,
@@ -29,6 +31,16 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I can change a rovers heading,
   # I'd like to be able to spin a rover 90 degrees left and right.
+  it 'A NASA controller can change the heading of a mars rover' do
+    expect(mars_rover.current_position).to include "N"
+    mars_rover.rotate_right
+    expect(mars_rover.current_position).to include "E"
+    mars_rover.rotate_left
+    mars_rover.rotate_left
+    expect(mars_rover.current_position).to include "W"
+    mars_rover.rotate_left
+    expect(mars_rover.current_position).to include "S"
+  end
 
   # USER STORY 7
   # As a NASA controller,
