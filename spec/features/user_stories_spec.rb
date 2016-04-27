@@ -1,6 +1,9 @@
 describe 'User Stories' do
 
-  let (:mars_rover) { MarsRover.new }
+  let (:mars_rover) { MarsRover.new(compass: compass) }
+  let (:compass) { Compass.new(headings) }
+
+  let (:headings) { ['N', 'E', 'S', 'W'] }
 
   # USER STORY 1
   # As a NASA controller,

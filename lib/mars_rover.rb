@@ -5,7 +5,7 @@ class MarsRover
   end
 
   def possible_compass_directions
-    compass.possible_directions
+    compass.headings
   end
 
   private
