@@ -16,7 +16,12 @@ describe MarsRover do
     end
 
     it 'can have a current position' do
+      mars_rover.set_heading(start_position)
       expect(mars_rover.print_current_position).to eq(start_position)
+    end
+
+    it 'can have a position set' do
+      expect(mars_rover.set_heading(start_position)).to eq([start_position])
     end
   end
 end
