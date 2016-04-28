@@ -49,7 +49,11 @@ class MarsRover
   end
 
   def add_one_to_index(index)
-    index + 1
+    if index == compass.headings.length - 1
+      0
+    else
+      index + 1
+    end
   end
 
   def subtract_one_from_index(index)
