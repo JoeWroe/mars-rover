@@ -51,4 +51,27 @@ describe MarsRover do
       expect(mars_rover.rotate_left).to eq([1, 2, west])
     end
   end
+
+  describe 'moving forward' do
+
+    it 'can be done when facing north' do
+      mars_rover.set_position(1, 2, north)
+      expect(mars_rover.move_forward).to eq([1, 3, north])
+    end
+
+    it 'can be done when facing east' do
+      mars_rover.set_position(1, 2, east)
+      expect(mars_rover.move_forward).to eq([2, 2, east])
+    end
+
+    it 'can be done when facing south' do
+      mars_rover.set_position(1, 2, south)
+      expect(mars_rover.move_forward).to eq([1, 1, south])
+    end
+
+    it 'can be done when facing west' do
+      mars_rover.set_position(1, 2, west)
+      expect(mars_rover.move_forward).to eq([0, 2, west])
+    end
+  end
 end

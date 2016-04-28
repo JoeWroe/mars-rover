@@ -18,10 +18,10 @@ describe Controller do
 
   let (:rovers_on_plateau) { [mars_rover] }
   let (:mars_rover_position) { [1, 2, 'N'] }
-  let (:mars_rover_position_printed) { '1 2 N' }
-  let (:mars_rover_position_after_right_turn) { ['E'] }
+  let (:mars_rover_position_printed) { mars_rover_position }
   let (:navigational_grid_size) { { :x_coord=>5, :y_coord=>5 } }
-  let (:mars_rover_position_after_left_turn) { ['W'] }
+  let (:mars_rover_position_after_right_turn) { }
+  let (:mars_rover_position_after_left_turn) { }
   let (:mars_rover_position_after_move_forward) { }
 
   describe 'landing a rover at a given position' do
@@ -37,7 +37,9 @@ describe Controller do
 
   describe 'position of a rover after right turn' do
 
-    let (:mars_rover_position) { ['E'] }
+    let (:mars_rover_position) { mars_rover_position_after_right_turn }
+    let (:mars_rover_position_after_right_turn) { "1 2 E" }
+
 
     it 'can be changed with a right turn' do
       expect(controller.change_rover_position(mars_rover, "R")).to eq(mars_rover_position_after_right_turn)
@@ -46,7 +48,9 @@ describe Controller do
 
   describe 'position of a rover after a left turn' do
 
-    let (:mars_rover_position) { ['W'] }
+    let (:mars_rover_position) { mars_rover_position_after_left_turn }
+    let (:mars_rover_position_after_left_turn) { "1 2 W" }
+
 
     it 'can be changed with a left turn' do
       expect(controller.change_rover_position(mars_rover, "L")).to eq(mars_rover_position_after_left_turn)
@@ -58,7 +62,7 @@ describe Controller do
     describe 'north' do
 
       let (:mars_rover_position) { mars_rover_position_after_move_forward }
-      let (:mars_rover_position_after_move_forward) { [1, 3, 'N'] }
+      let (:mars_rover_position_after_move_forward) { "1 3 N" }
 
       it 'adds one to y_coord' do
         expect(controller.change_rover_position(mars_rover, "M")).to eq(mars_rover_position_after_move_forward)
@@ -68,7 +72,7 @@ describe Controller do
     describe 'east' do
 
       let (:mars_rover_position) { mars_rover_position_after_move_forward }
-      let (:mars_rover_position_after_move_forward) { [2, 2, 'E'] }
+      let (:mars_rover_position_after_move_forward) { "2 2 E" }
 
       it 'adds one to x_coord' do
         expect(controller.change_rover_position(mars_rover, "M")).to eq(mars_rover_position_after_move_forward)
@@ -78,7 +82,7 @@ describe Controller do
     describe 'south' do
 
       let (:mars_rover_position) { mars_rover_position_after_move_forward }
-      let (:mars_rover_position_after_move_forward) { [1, 1, 'S'] }
+      let (:mars_rover_position_after_move_forward) { "1 1 S" }
 
       it 'takes one to y_coord' do
         expect(controller.change_rover_position(mars_rover, "M")).to eq(mars_rover_position_after_move_forward)
@@ -88,7 +92,7 @@ describe Controller do
     describe 'west' do
 
       let (:mars_rover_position) { mars_rover_position_after_move_forward }
-      let (:mars_rover_position_after_move_forward) { [0, 2, 'W'] }
+      let (:mars_rover_position_after_move_forward) { "0 2 W" }
 
       it 'takes one to x_coord' do
         expect(controller.change_rover_position(mars_rover, "M")).to eq(mars_rover_position_after_move_forward)

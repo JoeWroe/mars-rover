@@ -38,6 +38,14 @@ class MarsRover
     set_position(current_position[0], current_position[1], new_heading)
   end
 
+  def move_forward
+    add_one_to_y_axis if current_heading == "N"
+    add_one_to_x_axis if current_heading == "E"
+    take_one_from_y_axis if current_heading == "S"
+    take_one_from_x_axis if current_heading == "W"
+    current_position
+  end
+
   private
 
   attr_reader :compass
@@ -60,6 +68,22 @@ class MarsRover
 
   def subtract_one_from_index(index)
     index - 1
+  end
+
+  def add_one_to_y_axis
+    current_position[1] = current_position[1].to_i + 1
+  end
+
+  def add_one_to_x_axis
+    current_position[0] = current_position[0].to_i + 1
+  end
+
+  def take_one_from_y_axis
+    current_position[1] = current_position[1].to_i - 1
+  end
+
+  def take_one_from_x_axis
+    current_position[0] = current_position[0].to_i - 1
   end
 
 end

@@ -28,7 +28,7 @@ class Controller
   def change_rover_position(mars_rover, position_change_input)
     position_change_array = split_input(position_change_input)
     position_changer(mars_rover, position_change_array)
-    mars_rover.current_position
+    check_rover_position(mars_rover)
   end
 
   private
