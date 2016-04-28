@@ -7,6 +7,7 @@ describe 'User Stories' do
   let (:compass) { Compass.new(headings) }
 
   let (:headings) { ['N', 'E', 'S', 'W'] }
+  let (:land_position) { "1 2 N"}
   let (:navigational_grid_size) { { :x_coord=>5, :y_coord=>5 } }
 
   # USER STORY 1
@@ -35,6 +36,9 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I know the position and location of a rover,
   # I'd like to be able to check a rovers current position and location.
+  it 'A NASA controller can land a mars rover at a given location' do
+    expect(controller.check_rover_position(mars_rover)).to eq(land_position)
+  end
 
   # USER STORY 5
   # As a NASA controller,

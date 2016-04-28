@@ -9,15 +9,15 @@ describe Controller do
                       double(:mars_rover,
                       current_position: mars_rover_position,
                       print_current_position: mars_rover_position_printed,
-                      set_heading: mars_rover_position,
+                      set_position: mars_rover_position,
                       rotate_right: mars_rover_position_after_right_turn,
                       rotate_left: mars_rover_position_after_left_turn)
                     }
   let (:navigational_grid) { double(:navigational_grid, size: navigational_grid_size) }
 
   let (:rovers_on_plateau) { [mars_rover] }
-  let (:mars_rover_position) { ['N'] }
-  let (:mars_rover_position_printed) { 'N' }
+  let (:mars_rover_position) { [1, 2, 'N'] }
+  let (:mars_rover_position_printed) { '1 2 N' }
   let (:mars_rover_position_after_right_turn) { ['E'] }
   let (:mars_rover_position_after_left_turn) { ['W'] }
   let (:navigational_grid_size) { { :x_coord=>5, :y_coord=>5 } }
@@ -25,7 +25,7 @@ describe Controller do
   describe 'landing a rover at a given position' do
 
     it 'can land a rover with a given heading' do
-      expect(controller.land(mars_rover, 'N')).to eq(mars_rover.current_position)
+      expect(controller.land(mars_rover, '1 2 N')).to eq(mars_rover.current_position)
     end
 
     it 'can check a rovers position' do

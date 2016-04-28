@@ -12,28 +12,30 @@ class MarsRover
   end
 
   def print_current_position
-    current_position.join(", ")
+    current_position.join(" ")
   end
 
-  def set_heading(heading)
+  def set_position(x_coord, y_coord, heading)
     if compass.headings.include? heading
-      current_position[0] = heading
+      current_position[0] = x_coord
+      current_position[1] = y_coord
+      current_position[2] = heading
       current_position
     end
   end
 
   def rotate_right
-    current_heading_index = find_index_of_current_heading(current_heading)
-    new_heading_index = add_one_to_index(current_heading_index)
-    new_heading = compass.headings[new_heading_index]
-    set_heading(new_heading)
+    current_heading_compass_index = find_index_of_current_heading(current_position[2])
+    new_heading_compass_index = add_one_to_index(current_heading_compass_index)
+    new_heading = compass.headings[new_heading_compass_index]
+    set_position(current_position[0], current_position[1], new_heading)
   end
 
   def rotate_left
-    current_heading_index = find_index_of_current_heading(current_heading)
-    new_heading_index = subtract_one_from_index(current_heading_index)
-    new_heading = compass.headings[new_heading_index]
-    set_heading(new_heading)
+    current_heading_compass_index = find_index_of_current_heading(current_position[2])
+    new_heading_compass_index = subtract_one_from_index(current_heading_compass_index)
+    new_heading = compass.headings[new_heading_compass_index]
+    set_position(current_position[0], current_position[1], new_heading)
   end
 
   private
@@ -41,7 +43,7 @@ class MarsRover
   attr_reader :compass
 
   def current_heading
-    current_position[0]
+    current_position[2]
   end
 
   def find_index_of_current_heading(current_heading)

@@ -11,9 +11,10 @@ class Controller
     navigational_grid.size
   end
 
-  def land(mars_rover, heading)
+  def land(mars_rover, position)
     plateau.current_rovers << mars_rover
-    mars_rover.set_heading(heading)
+    land_position_array = split_input(position)
+    mars_rover.set_position(land_position_array[0], land_position_array[2], land_position_array[4])
   end
 
   def check_currently_landed_rovers
