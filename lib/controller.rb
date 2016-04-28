@@ -7,7 +7,8 @@ class Controller
   end
 
   def add_navigational_grid(x_coord, y_coord)
-    NavigationalGrid.new(plateau: plateau, x_coord: x_coord, y_coord: y_coord)
+    navigational_grid = navigational_grid_setter(x_coord, y_coord)
+    navigational_grid.size
   end
 
   def land(mars_rover, heading)
@@ -32,6 +33,10 @@ class Controller
   private
 
   attr_reader :plateau
+
+  def navigational_grid_setter(x_coord, y_coord)
+    NavigationalGrid.new(plateau: plateau, x_coord: x_coord, y_coord: y_coord)
+  end
 
   def split_input(input_to_split)
     input_to_split.split(//)

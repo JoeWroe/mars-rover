@@ -124,7 +124,7 @@ I'd like to be able to check a rovers current position and location.
 ```
 
 **User Story 5:**
-*The plateau is divided up into a grid to simplify navigation.*
+*The plateau is divided up into a grid to simplify navigation.* :heavy_check_mark:
 ```
 As a NASA controller,
 So that I can simplify navigation,

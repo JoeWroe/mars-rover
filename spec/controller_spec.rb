@@ -13,13 +13,14 @@ describe Controller do
                       rotate_right: mars_rover_position_after_right_turn,
                       rotate_left: mars_rover_position_after_left_turn)
                     }
-  let (:navigational_grid) { double(:navigational_grid)}
+  let (:navigational_grid) { double(:navigational_grid, size: navigational_grid_size) }
 
   let (:rovers_on_plateau) { [mars_rover] }
   let (:mars_rover_position) { ['N'] }
   let (:mars_rover_position_printed) { 'N' }
   let (:mars_rover_position_after_right_turn) { ['E'] }
   let (:mars_rover_position_after_left_turn) { ['W'] }
+  let (:navigational_grid_size) { { :x_coord=>5, :y_coord=>5 } }
 
   describe 'landing a rover at a given position' do
 
@@ -57,7 +58,7 @@ describe Controller do
     end
 
     it 'can add a navigational grid' do
-      expect(controller.add_navigational_grid(5, 5)).to eq([5, 5])
+      expect(controller.add_navigational_grid(5, 5)).to eq(navigational_grid_size)
     end
   end
 end
