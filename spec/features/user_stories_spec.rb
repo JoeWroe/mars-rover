@@ -2,7 +2,7 @@ describe 'User Stories' do
 
   let (:controller) { Controller.new(plateau: plateau) }
   let (:mars_rover) { MarsRover.new(compass: compass) }
-  
+
   let (:plateau) { Plateau.new }
   let (:compass) { Compass.new(headings) }
 
@@ -42,8 +42,9 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I can change a rovers heading,
   # I'd like to be able to spin a rover 90 degrees left and right.
-  xit 'A NASA controller can change the heading of a mars rover' do
-    expect(mars_rover.current_position).to include "N"
+  it 'A NASA controller can change the heading of a mars rover' do
+    controller.land(mars_rover)
+    expect(controller.check_rover_position(mars_rover)).to include "N"
     mars_rover.rotate_right
     expect(mars_rover.current_position).to include "E"
     mars_rover.rotate_left

@@ -100,7 +100,7 @@ I'd like to interact with an online Mars Rover.
 ```
 
 **User Story 2:**
-*A squad of robotic rovers are to be landed by NASA on a plateau on Mars.*
+*A squad of robotic rovers are to be landed by NASA on a plateau on Mars.* :heavy_check_mark:
 ```
 As a NASA controller,
 So that I can explore a particular part of Mars,

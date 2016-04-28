@@ -12,6 +12,10 @@ class Controller
     plateau.current_rovers
   end
 
+  def check_rover_position(mars_rover)
+    mars_rover.print_current_position
+  end
+
   private
 
   attr_reader :plateau
