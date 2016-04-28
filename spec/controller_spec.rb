@@ -31,9 +31,9 @@ describe Controller do
 
   describe 'position of a rover after right turn' do
 
+    let (:mars_rover_position) { ['E'] }
 
     it 'can be changed with a right turn' do
-      let (:mars_rover_position) { ['E'] }
       expect(controller.change_rover_position(mars_rover, "R")).to eq(mars_rover_position_after_right_turn)
     end
   end
