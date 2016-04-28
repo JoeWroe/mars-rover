@@ -47,6 +47,7 @@ class Controller
     position_change_array.each do |direction_change|
       mars_rover.rotate_right if direction_change == "R"
       mars_rover.rotate_left if direction_change == "L"
+      mars_rover.move_forward if direction_change == "M"
     end
   end
 

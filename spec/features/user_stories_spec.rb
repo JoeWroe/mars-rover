@@ -54,7 +54,7 @@ describe 'User Stories' do
   # So that I can change a rovers heading,
   # I'd like to be able to spin a rover 90 degrees left and right.
   it 'A NASA controller can change the heading of a mars rover' do
-    controller.land(mars_rover, 'N')
+    controller.land(mars_rover, land_position)
     expect(controller.check_rover_position(mars_rover)).to include "N"
     controller.change_rover_position(mars_rover, 'R')
     expect(controller.check_rover_position(mars_rover)).to include "E"
@@ -70,5 +70,17 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I can advance on the grid,
   # I'd like to be able to move the rover forward one grid point.
+  it 'A NASA controller can move a mars rover one grid space in the direction it is heading' do
+    controller.land(mars_rover, land_position)
+    expect(controller.check_rover_position(mars_rover)).to eq(land_position)
+    controller.change_rover_position(mars_rover, 'MR')
+    expect(controller.check_rover_position(mars_rover)).to eq("1 3 E")
+    controller.change_rover_position(mars_rover, 'MR')
+    expect(controller.check_rover_position(mars_rover)).to eq("2 3 S")
+    controller.change_rover_position(mars_rover, 'MR')
+    expect(controller.check_rover_position(mars_rover)).to eq("2 2 W")
+    controller.change_rover_position(mars_rover, 'MR')
+    expect(controller.check_rover_position(mars_rover)).to eq("1 2 N")
+  end
 
 end
