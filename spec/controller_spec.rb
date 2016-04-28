@@ -15,4 +15,11 @@ describe Controller do
       expect(controller.land(mars_rover)).to eq(rovers_on_plateau)
     end
   end
+
+  describe 'managing the plateau' do
+
+    it 'can find out what is currently on the plateau' do
+      expect(controller.check_currently_landed_rovers).to eq(rovers_on_plateau)
+    end
+  end
 end
