@@ -19,7 +19,7 @@ describe 'User Stories' do
   # So that I can explore a particular part of Mars,
   # I'd like to be able to land a Mars Rover on the plateau.
   it 'A NASA controller can land a mars rover on a plateau' do
-    controller.land(mars_rover)
+    controller.land(mars_rover, 'N')
     expect(controller.check_currently_landed_rovers).to eq([mars_rover])
   end
 
@@ -43,7 +43,7 @@ describe 'User Stories' do
   # So that I can change a rovers heading,
   # I'd like to be able to spin a rover 90 degrees left and right.
   it 'A NASA controller can change the heading of a mars rover' do
-    controller.land(mars_rover)
+    controller.land(mars_rover, 'N')
     expect(controller.check_rover_position(mars_rover)).to include "N"
     mars_rover.rotate_right
     expect(mars_rover.current_position).to include "E"

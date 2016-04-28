@@ -4,8 +4,9 @@ class Controller
     @plateau = plateau
   end
 
-  def land(mars_rover)
+  def land(mars_rover, heading)
     plateau.current_rovers << mars_rover
+    mars_rover.set_heading(heading)
   end
 
   def check_currently_landed_rovers
