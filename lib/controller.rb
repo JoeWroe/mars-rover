@@ -1,7 +1,13 @@
+require_relative 'navigational_grid'
+
 class Controller
 
   def initialize(plateau:)
     @plateau = plateau
+  end
+
+  def add_navigational_grid(x_coord, y_coord)
+    NavigationalGrid.new(plateau: plateau, x_coord: x_coord, y_coord: y_coord)
   end
 
   def land(mars_rover, heading)

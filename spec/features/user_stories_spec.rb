@@ -6,8 +6,8 @@ describe 'User Stories' do
   let (:plateau) { Plateau.new }
   let (:compass) { Compass.new(headings) }
 
-
   let (:headings) { ['N', 'E', 'S', 'W'] }
+  let (:navigational_grid) { [5, 5] }
 
   # USER STORY 1
   # As a NASA controller,
@@ -40,6 +40,9 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I can simplify navigation,
   # I'd like to be able to divide the plateau into a grid.
+  it 'A NASA controller can add a navigational grid to the plateau' do
+    expect(controller.add_navigational_grid(5, 5)).to eq(navigational_grid)
+  end
 
   # USER STORY 6
   # As a NASA controller,

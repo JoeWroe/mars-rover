@@ -13,6 +13,7 @@ describe Controller do
                       rotate_right: mars_rover_position_after_right_turn,
                       rotate_left: mars_rover_position_after_left_turn)
                     }
+  let (:navigational_grid) { double(:navigational_grid)}
 
   let (:rovers_on_plateau) { [mars_rover] }
   let (:mars_rover_position) { ['N'] }
@@ -51,8 +52,12 @@ describe Controller do
 
   describe 'managing the plateau' do
 
-    it 'can find out what is currently on the plateau' do
+    it 'can find out what is currently there' do
       expect(controller.check_currently_landed_rovers).to eq(rovers_on_plateau)
+    end
+
+    it 'can add a navigational grid' do
+      expect(controller.add_navigational_grid(5, 5)).to eq([5, 5])
     end
   end
 end
