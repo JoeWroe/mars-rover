@@ -34,6 +34,7 @@ class Controller
   def position_changer(mars_rover, position_change_array)
     position_change_array.each do |direction_change|
       mars_rover.rotate_right if direction_change == "R"
+      mars_rover.rotate_left if direction_change == "L"
     end
   end
 

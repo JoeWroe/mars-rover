@@ -10,13 +10,15 @@ describe Controller do
                       current_position: mars_rover_position,
                       print_current_position: mars_rover_position_printed,
                       set_heading: mars_rover_position,
-                      rotate_right: mars_rover_position_after_right_turn)
+                      rotate_right: mars_rover_position_after_right_turn,
+                      rotate_left: mars_rover_position_after_left_turn)
                     }
 
   let (:rovers_on_plateau) { [mars_rover] }
   let (:mars_rover_position) { ['N'] }
   let (:mars_rover_position_printed) { 'N' }
   let (:mars_rover_position_after_right_turn) { ['E'] }
+  let (:mars_rover_position_after_left_turn) { ['W'] }
 
   describe 'landing a rover at a given position' do
 
@@ -35,6 +37,15 @@ describe Controller do
 
     it 'can be changed with a right turn' do
       expect(controller.change_rover_position(mars_rover, "R")).to eq(mars_rover_position_after_right_turn)
+    end
+  end
+
+  describe 'position of a rover after a left turn' do
+
+    let (:mars_rover_position) { ['W'] }
+
+    it 'can be changed with a left turn' do
+      expect(controller.change_rover_position(mars_rover, "L")).to eq(mars_rover_position_after_left_turn)
     end
   end
 

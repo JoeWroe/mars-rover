@@ -45,13 +45,12 @@ describe 'User Stories' do
   it 'A NASA controller can change the heading of a mars rover' do
     controller.land(mars_rover, 'N')
     expect(controller.check_rover_position(mars_rover)).to include "N"
-    mars_rover.rotate_right
-    expect(mars_rover.current_position).to include "E"
-    mars_rover.rotate_left
-    mars_rover.rotate_left
-    expect(mars_rover.current_position).to include "W"
-    mars_rover.rotate_left
-    expect(mars_rover.current_position).to include "S"
+    controller.change_rover_position(mars_rover, 'R')
+    expect(controller.check_rover_position(mars_rover)).to include "E"
+    controller.change_rover_position(mars_rover, 'LL')
+    expect(controller.check_rover_position(mars_rover)).to include "W"
+    controller.change_rover_position(mars_rover, 'L')
+    expect(controller.check_rover_position(mars_rover)).to include "S"
   end
 
   # USER STORY 7
