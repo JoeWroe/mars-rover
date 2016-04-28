@@ -51,6 +51,8 @@ describe 'User Stories' do
     expect(controller.check_rover_position(mars_rover)).to include "W"
     controller.change_rover_position(mars_rover, 'L')
     expect(controller.check_rover_position(mars_rover)).to include "S"
+    controller.change_rover_position(mars_rover, 'RR')
+    expect(controller.check_rover_position(mars_rover)).to include "N"
   end
 
   # USER STORY 7

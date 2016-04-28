@@ -29,6 +29,13 @@ class MarsRover
     set_heading(new_heading)
   end
 
+  def rotate_left
+    current_heading_index = find_index_of_current_heading(current_heading)
+    new_heading_index = subtract_one_from_index(current_heading_index)
+    new_heading = compass.headings[new_heading_index]
+    set_heading(new_heading)
+  end
+
   private
 
   attr_reader :compass
@@ -43,6 +50,10 @@ class MarsRover
 
   def add_one_to_index(index)
     index + 1
+  end
+
+  def subtract_one_from_index(index)
+    index - 1
   end
 
 end
