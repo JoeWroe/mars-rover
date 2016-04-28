@@ -13,6 +13,9 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that NASA can explore Mars,
   # I'd like to interact with an online Mars Rover.
+  it 'A NASA controller can interact with a Mars Rover' do
+    expect(controller.land(mars_rover, 'N')).to_not eq(mars_rover)
+  end
 
   # USER STORY 2
   # As a NASA controller,

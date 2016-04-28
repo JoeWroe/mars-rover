@@ -92,7 +92,7 @@ Above each User Story is the sentence that has formed the basis for its developm
 ####The constructed User Stories
 
 **User Story 1:**
-*This is basic functionality required - the controller must be able to communicate with the rover. No specific sentence has formed the basis of this User Story*
+*This is basic functionality required - the controller must be able to communicate with the rover. No specific sentence has formed the basis of this User Story* :heavy_check_mark:
 ```
 As a NASA controller,
 So that NASA can explore Mars,
@@ -132,7 +132,7 @@ I'd like to be able to divide the plateau into a grid.
 ```
 
 **User Story 6**
-*In order to control a rover, NASA sends a simple string of letters... ‘L’ and ‘R’ makes the rover spin 90 degrees left or right respectively, without moving from its current spot.*
+*In order to control a rover, NASA sends a simple string of letters... ‘L’ and ‘R’ makes the rover spin 90 degrees left or right respectively, without moving from its current spot.* :heavy_check_mark:
 ```
 As a NASA controller,
 So that I can change a rovers heading,
