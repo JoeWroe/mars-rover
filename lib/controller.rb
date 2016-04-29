@@ -11,28 +11,28 @@ class Controller
     navigational_grid.size
   end
 
-  def toggle_camera(camera)
-    camera.toggle_recording
-  end
-
   def land(mars_rover, position)
     plateau.current_rovers << mars_rover
     land_position_array = split_input(position)
     mars_rover.set_position(land_position_array[0], land_position_array[2], land_position_array[4])
   end
 
-  def check_currently_landed_rovers
-    plateau.current_rovers
-  end
-
   def check_rover_position(mars_rover)
     mars_rover.print_current_position
+  end
+
+  def check_currently_landed_rovers
+    plateau.current_rovers
   end
 
   def change_rover_position(mars_rover, position_change_input)
     position_change_array = split_input(position_change_input)
     position_changer(mars_rover, position_change_array)
     check_rover_position(mars_rover)
+  end
+
+  def toggle_camera(camera)
+    camera.toggle_recording
   end
 
   private
