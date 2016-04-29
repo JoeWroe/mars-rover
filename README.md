@@ -51,9 +51,9 @@ Since this project is designed to demonstrate skills, and given that the majorit
 
 ##Setup
 
-This application has been designed to be run from the command line, for that reason there is little setup required. Simple unzip the file  if one has been provided or fork the repository at  (https://github.com/JoeWroe/mars-rover), and clone it down to your local machine.
+This application has been designed to be run from the command line, for that reason there is little setup required. Simply unzip the file  if one has been provided or fork the repository at  (https://github.com/JoeWroe/mars-rover), and clone it down to your local machine.
 
-From the command line, navigate the folder containing the application an open up a REPL (such as IRB or PRY). Once in a REPL, run the following commands to make sure you have required the necessary files:
+From the command line, navigate to the folder containing the application an open up a REPL (such as IRB or PRY). Once in a REPL, run the following commands to make sure you have required the necessary files:
 
   `require './lib/controller.rb'`  
   `require './lib/plateau.rb'`  
@@ -68,17 +68,17 @@ Once all files have been required, run the following in order to create the appr
   `plateau = Plateau.new`  
   `controller = Controller.new(plateau: plateau)`  
 
-This leaves you in a position to start using the application. Without exiting your REPL, try out a selection of the methods defined under the following hading "**Code Eample**"
+This leaves you in a position to start using the application. Without exiting your REPL, try out a selection of the methods defined under the following heading "**Code Example**"
 
 ##Code Example
 
 This application has been design for use by a NASA controller, therefore all key functionality can be accessed from the controller class, as follows:
 
-- *First off, we will need to set up the navigational grid on the mars plateau. Since the plateau that the controller will be managing was injected upon the controllers creation, we simply have to use the following method where the arguments are the size of the grid that is required.*
+- *First off, we will need to set up the navigational grid on the mars plateau. Since the plateau that the controller will be managing was injected upon the controllers creation, we simply have to use the following method, the arguments are the size of the grid that is required.*
 
 `controller.add_navigational_grid(5, 5)`
 
-=> {:x_coord=>5, :y_coord=>5}
+=> { :x_coord=>5, :y_coord=>5 }
 
 - *Next, we will need to land a rover on the plateau.*
 
@@ -92,11 +92,11 @@ This application has been design for use by a NASA controller, therefore all key
 
 => "1 2 N"
 
-- *You can now create and add as many rovers to the plateau as you like. At this point, it has been assumed that a grid square can hold any number of rovers. To find out the rovers that a present on the plateau, run:*
+- *You can now create and add as many rovers to the plateau as you like. At this point, it has been assumed that a grid square can hold any number of rovers. To find out the rovers that are present on the plateau, run:*
 
 `controller.check_currently_landed_rovers`
 
-=> [#<MarsRover:0x007f81ca489c68 @compass=#<Compass:0x007f81c88909d0 @headings=["N", "E", "S", "W"]>, @current_position=["1", "2", "N"]>]
+=> [mars_rover] *Returns the rovers you have landed*
 
 - *Finally a NASA controller may wish to alter the position of a rover.*
 
