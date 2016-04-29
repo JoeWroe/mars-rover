@@ -5,6 +5,7 @@ describe 'User Stories' do
 
   let (:plateau) { Plateau.new }
   let (:compass) { Compass.new(headings) }
+  let (:camera) { Camera.new(mars_rover: mars_rover) }
 
   let (:headings) { ['N', 'E', 'S', 'W'] }
   let (:land_position) { "1 2 N"}
@@ -31,6 +32,10 @@ describe 'User Stories' do
   # As a NASA controller,
   # So that I can get a complete view of the surrounding terrain to send back to Earth,
   # I'd like to be able to start and stop our camera from recording.
+  it 'A NASA controller can add a camera to a rover and turn it on and off' do
+    controller.toggle_camera(camera)
+    expect(camera.recording).to eq(true)
+  end
 
   # USER STORY 4
   # As a NASA controller,

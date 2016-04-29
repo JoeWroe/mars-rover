@@ -11,6 +11,10 @@ class Controller
     navigational_grid.size
   end
 
+  def toggle_camera(camera)
+    camera.toggle_recording
+  end
+
   def land(mars_rover, position)
     plateau.current_rovers << mars_rover
     land_position_array = split_input(position)
