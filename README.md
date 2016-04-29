@@ -55,18 +55,18 @@ This application has been designed to be run from the command line, for that rea
 
 From the command line, navigate the folder containing the application an open up a REPL (such as IRB or PRY). Once in a REPL, run the following commands to make sure you have required the necessary files:
 
-  `require './lib/controller.rb'`
-  `require './lib/plateau.rb'`
-  `require './lib/navigational_grid.rb'`
-  `require './lib/mars_rover.rb'`
-  `require './lib/compass.rb'`
+  `require './lib/controller.rb'`  
+  `require './lib/plateau.rb'`  
+  `require './lib/navigational_grid.rb'`  
+  `require './lib/mars_rover.rb'`  
+  `require './lib/compass.rb'`  
 
 Once all files have been required, run the following in order to create the appropriate objects:
 
-  `compass = Compass.new(["N", "E", "S", "W"])`
-  `mars_rover = MarsRover.new(compass: compass)`
-  `plateau = Plateau.new`
-  `controller = Controller.new(plateau: plateau)`
+  `compass = Compass.new(["N", "E", "S", "W"])`  
+  `mars_rover = MarsRover.new(compass: compass)`  
+  `plateau = Plateau.new`  
+  `controller = Controller.new(plateau: plateau)`  
 
 This leaves you in a position to start using the application. Without exiting your REPL, try out a selection of the methods defined under the following hading "**Code Eample**"
 
@@ -74,37 +74,37 @@ This leaves you in a position to start using the application. Without exiting yo
 
 This application has been design for use by a NASA controller, therefore all key functionality can be accessed from the controller class, as follows:
 
-*- First off, we will need to set up the navigational grid on the mars plateau. Since the plateau that the controller will be managing was injected upon the controllers creation, we simply have to use the following method where the arguments are the size of the grid that is required.*
+-*First off, we will need to set up the navigational grid on the mars plateau. Since the plateau that the controller will be managing was injected upon the controllers creation, we simply have to use the following method where the arguments are the size of the grid that is required.*
 
 `controller.add_navigational_grid(5, 5)`
 
 => {:x_coord=>5, :y_coord=>5}
 
-*- Next, we will need to land a rover on the plateau.*
+-*Next, we will need to land a rover on the plateau.*
 
 `controller.land(mars_rover, "1 2 N")`
 
 => ["1", "2", "N"]
 
-*- As you will have noticed, the previous method returned an array. For presentation purposes, this may be required as a string.*
+-*As you will have noticed, the previous method returned an array. For presentation purposes, this may be required as a string.*
 
 `controller.check_rover_position(mars_rover)`
 
 => "1 2 N"
 
-*- You can now create and add as many rovers to the plateau as you like. At this point, it has been assumed that a grid square can hold any number of rovers. To find out the rovers that a present on the plateau, run:*
+-*You can now create and add as many rovers to the plateau as you like. At this point, it has been assumed that a grid square can hold any number of rovers. To find out the rovers that a present on the plateau, run:*
 
 `controller.check_currently_landed_rovers`
 
 => [#<MarsRover:0x007f81ca489c68 @compass=#<Compass:0x007f81c88909d0 @headings=["N", "E", "S", "W"]>, @current_position=["1", "2", "N"]>]
 
-*- Finally a NASA controller may wish to alter the position of a rover.*
+-*Finally a NASA controller may wish to alter the position of a rover.*
 
 `controller.change_rover_position(mars_rover, "LMLMLMLMM")`
 
 => "1 3 N"
 
-*- Since the problem mentions a camera at certain points, but does not go into great detail about the functionality required from that camera, an scaffolding for a future class has been included.*
+-*Since the problem mentions a camera at certain points, but does not go into great detail about the functionality required from that camera, an scaffolding for a future class has been included.*
 
 `require './lib/camera.rb'`
 `camera = camera.new(mars_rover: mars_rover)`
