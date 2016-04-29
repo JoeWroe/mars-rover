@@ -104,7 +104,7 @@ This application has been design for use by a NASA controller, therefore all key
 
 => "1 3 N"
 
-- *Since the problem mentions a camera at certain points, but does not go into great detail about the functionality required from that camera, an scaffolding for a future class has been included.*
+- *Since the problem mentions a camera, but does not go into great detail about the behaviour required from that camera, scaffolding for a future class has been included.*
 
 `require './lib/camera.rb'`
 `camera = camera.new(mars_rover: mars_rover)`
