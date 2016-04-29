@@ -210,6 +210,24 @@ So that I can advance on the grid,
 I'd like to be able to move the rover forward one grid point.
 ```
 
+##Indication of how to pass the test inputs
+
+Firstly, follow the setup chapter above. This will get you to a point where you can begin interacting with the application from the command line.
+
+- `controller.add_navigational_grid(5, 5)`
+
+- `controller.land(mars_rover, "1 2 N")`
+
+- `controller.change_rover_position(mars_rover, "LMLMLMLMM")`
+
+- => "1 3 N"
+
+- `controller.land(mars_rover, "3 3 E")`
+
+- `controller.change_rover_position(mars_rover, "MMRMMRMRRM")`
+
+- => "5 1 E"
+
 ##Author
 
 [Joe Wroe](https://github.com/JoeWroe)
